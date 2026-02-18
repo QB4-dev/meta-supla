@@ -1,0 +1,10 @@
+[Unit]
+Description=Supla Device
+After=network-online.target
+
+[Service]
+ExecStart=/usr/bin/supla-device-linux -s
+
+[Install]
+WantedBy=multi-user.target
+

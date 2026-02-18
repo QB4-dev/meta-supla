@@ -1,0 +1,18 @@
+# Example supla-device config file for Linux device
+# https://github.com/SUPLA/supla-device
+
+name: SUPLA Linux device
+log_level: debug
+state_files_path: "/var/local/supla-device"
+security_level: 2 # disable certyficate verification
+
+supla:
+  server: svr123.supla.org
+  mail: mail@user.com
+
+channels:
+  - type: VirtualRelay
+    name: vr1 # optional, can be used as reference for adding actions (TBD)
+
+  - type: VirtualRelay
+    name: vr2
