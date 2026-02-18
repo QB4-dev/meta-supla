@@ -36,26 +36,33 @@ TARGET_CFLAGS += "-Wno-error=format -Wno-format"
 TARGET_CXXFLAGS += "-Wno-error=format -Wno-format"
 
 do_install:append() {
+	# install binary - should be in CMakeLists
     install -d ${D}${bindir}
     install -m 0755 ${B}/supla-device-linux ${D}${bindir}/supla-device-linux
 
+	# install sysvinit script
 	install -d ${D}${sysconfdir}/init.d/
 	install -m 0755 ${WORKDIR}/supla-device.sh ${D}${sysconfdir}/init.d/supla-device
-	
+
+	# install systemd service
 	install -d ${D}${systemd_unitdir}/system
     install -m 644 ${WORKDIR}/supla-device.service ${D}${systemd_system_unitdir}/supla-device.service
-	
+
+	# install config file
 	install -d ${D}${sysconfdir}/
 	install -m 0644 ${WORKDIR}/supla-device.yaml ${D}${sysconfdir}/supla-device.yaml
 }
 
+# sysvinit
 INITSCRIPT_NAME = "supla-device"
 INITSCRIPT_PARAMS = "start 99 5 . stop 60 0 1 6 ."
 
-SYSTEMD_SERVICE:${PN} = "apfd.service"
+# systemd
+SYSTEMD_SERVICE:${PN} = "supla-device.service"
 SYSTEMD_AUTO_ENABLE = "enable"
 
 FILES:${PN} += "\
+    ${sysconfdir}/init.d/supla-device \
     ${systemd_system_unitdir}/supla-device.service \
 "
 
