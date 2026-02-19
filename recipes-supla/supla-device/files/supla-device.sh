@@ -16,7 +16,7 @@ PATH=/sbin:/usr/sbin:/bin:/usr/bin
 DESC="supla-device-linux"
 NAME="supla-device-linux"
 DAEMON=/usr/bin/$NAME
-DAEMON_ARGS="-s"
+DAEMON_ARGS="-d -c /etc/supla-device.yaml"
 PIDFILE=/var/run/$NAME.pid
 
 . /etc/init.d/functions || exit 1
