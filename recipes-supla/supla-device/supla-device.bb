@@ -4,9 +4,10 @@ AUTHOR = "klew"
 LICENSE = "GPL-2.0-or-later"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=a23a74b3f4caf9616230789d94217acb"
 
-SRC_URI = "git://github.com/SUPLA/supla-device.git;protocol=https;branch=main"
-SRCREV = "1e2253d79f7f0ad002367e0ccf5b706137ba8d2d"
-PV="25.11"
+# FIXME using fork until source will be fixed
+SRC_URI = "git://github.com/QB4-dev/supla-device.git;protocol=https;branch=main"
+SRCREV = "668e3741a54d852fb2de4bcff150a5fb235f49bb"
+PV="26.02"
 
 SRC_URI += "\
     file://supla-device.sh \
@@ -31,15 +32,7 @@ do_configure[network] =  "1"
 do_compile[network] = "1"
 EXTRA_OECMAKE:append = "-DFETCHCONTENT_FULLY_DISCONNECTED=OFF"
 
-# Suppress format errors - this should be fixed in source
-TARGET_CFLAGS += "-Wno-error=format -Wno-format"
-TARGET_CXXFLAGS += "-Wno-error=format -Wno-format"
-
 do_install:append() {
-	# install binary - should be in CMakeLists
-    install -d ${D}${bindir}
-    install -m 0755 ${B}/supla-device-linux ${D}${bindir}/supla-device-linux
-
 	# install sysvinit script
 	install -d ${D}${sysconfdir}/init.d/
 	install -m 0755 ${WORKDIR}/supla-device.sh ${D}${sysconfdir}/init.d/supla-device
@@ -69,4 +62,3 @@ FILES:${PN} += "\
 CONFFILES:${PN} = "\
     ${sysconfdir}/supla-device.yaml \
 "
-
