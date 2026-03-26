@@ -3,7 +3,7 @@ Description=Supla Device
 After=network-online.target
 
 [Service]
-ExecStart=/usr/bin/supla-device-linux -s
+ExecStart=/usr/bin/supla-device-linux -s -c /etc/supla-device.yaml
 
 [Install]
 WantedBy=multi-user.target
