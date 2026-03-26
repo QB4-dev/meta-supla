@@ -5,9 +5,9 @@ LICENSE = "GPL-2.0-or-later"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=a23a74b3f4caf9616230789d94217acb"
 
 # FIXME using fork until source will be fixed
-SRC_URI = "git://github.com/QB4-dev/supla-device.git;protocol=https;branch=main"
-SRCREV = "668e3741a54d852fb2de4bcff150a5fb235f49bb"
-PV="26.02"
+SRC_URI = "git://github.com/SUPLA/supla-device.git;protocol=https;branch=main"
+SRCREV = "07d88b2ad6a640c645de83cddfdbfbba555bc851"
+PV="26.03"
 
 SRC_URI += "\
     file://supla-device.sh \
