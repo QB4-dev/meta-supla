@@ -4,10 +4,9 @@ AUTHOR = "klew"
 LICENSE = "GPL-2.0-or-later"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=a23a74b3f4caf9616230789d94217acb"
 
-# FIXME using fork until source will be fixed
 SRC_URI = "git://github.com/SUPLA/supla-device.git;protocol=https;branch=main"
-SRCREV = "58b32fc75a87eb8f4e844d6fac65305c3d8986b8"
-PV="26.03"
+SRCREV = "ab0b569a7b8dd4afd71b2e81e3b7ef2bd5b578ec"
+PV="26.04"
 
 SRC_URI += "\
     file://supla-device.sh \
