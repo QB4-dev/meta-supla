@@ -14,4 +14,8 @@ Table of Contents
 I. Adding the meta-supla layer to your build
 =================================================
 
-Run 'bitbake-layers add-layer meta-supla'
+Clone this layer to your layers directory 
+`git clone -b scarthgap https://github.com/QB4-dev/meta-supla`
+
+Add layer to current yocto build
+`bitbake-layers add-layer meta-supla`
